@@ -1,3 +1,5 @@
+package com.jpmorgan.rewardsconvertor;
+
 import java.util.Scanner;
 
 public class RewardsConverter {
