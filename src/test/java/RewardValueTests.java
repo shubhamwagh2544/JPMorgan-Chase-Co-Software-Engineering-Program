@@ -1,8 +1,9 @@
+import com.jpmorgan.rewardsconvertor.RewardValue;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RewardValueTests {
+class RewardValueTests {
 
     @Test
     void create_with_cash_value() {
@@ -20,11 +21,19 @@ public class RewardValueTests {
 
     @Test
     void convert_from_cash_to_miles() {
-        assert false;
+        double cashValue = 100;
+        var rewardValue = new RewardValue(cashValue);
+        int actual = rewardValue.cashToMiles(cashValue);
+        int expected = (int) (cashValue / RewardValue.MILES_TO_CASH_CONVERSION_RATE);
+        assertEquals(actual, expected);
     }
 
     @Test
     void convert_from_miles_to_cash() {
-        assert false;
+        int milesValue = 10000;
+        var rewardValue = new RewardValue(milesValue);
+        double actual = rewardValue.milesToCash(milesValue);
+        double expected = RewardValue.MILES_TO_CASH_CONVERSION_RATE * milesValue;
+        assertEquals(actual, expected);
     }
 }
